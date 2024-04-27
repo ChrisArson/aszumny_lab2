@@ -9,7 +9,14 @@ import SwiftUI
 
 struct CardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+            RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+            Text(":)").font(.largeTitle)
+        }
+        .foregroundColor(.blue)
+        .imageScale(.small)
+        .padding()
     }
 }
 
