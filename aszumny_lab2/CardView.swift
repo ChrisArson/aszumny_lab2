@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct CardView: View {
+    @State var isHidden: Bool = true
+    @State var emoji: String
+    let base = RoundedRectangle(cornerRadius: 12)
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
-            RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
-            Text(":)").font(.largeTitle)
+            Group{
+                base.foregroundColor(.white)
+                base.strokeBorder(lineWidth: 2)
+                Text(emoji).font(.largeTitle)
+            }
+            base.fill().opacity(isHidden ? 0 : 1)
         }
         .foregroundColor(.blue)
-        .imageScale(.small)
         .padding()
+        .onTapGesture {
+            isHidden.toggle()
+        }
+
     }
 }
 
-#Preview {
-    CardView()
-}
+//#Preview {
+//    CardView()
+//}
